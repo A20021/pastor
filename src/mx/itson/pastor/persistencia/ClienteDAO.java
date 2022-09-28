@@ -54,4 +54,6 @@ public class ClienteDAO {
         return resultado;
     }
     
+    //Hola esto es un comentario
+    
 }

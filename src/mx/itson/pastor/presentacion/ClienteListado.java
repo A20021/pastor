@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package mx.itson.pastor.presentacion;
 
 import java.util.List;
@@ -106,12 +102,13 @@ public class ClienteListado extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         
         List<Cliente> clientes = ClienteDAO.obtenerTodos();
-        DefaultTableModel modelo = 
-                                (DefaultTableModel)tblClientes.getModel();
+        DefaultTableModel modelo = (DefaultTableModel)tblClientes.getModel();
         modelo.setRowCount(0);
         
         for (Cliente c : clientes) {
-            modelo.addRow(new Object[] {
+            modelo.addRow(new Object[] 
+  
+            {
                 c.getNombre(),
                 c.getDireccion(),
                 c.getTelefono(),

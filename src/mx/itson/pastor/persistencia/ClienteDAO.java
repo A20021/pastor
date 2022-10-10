@@ -71,7 +71,4 @@ public class ClienteDAO {
         return existencia;
     }
     
-    //Hola esto es un comentario
-    //Esto es un segundo comentario
-    
 }

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package mx.itson.pastor.presentacion;
 
 import javax.swing.JOptionPane;
@@ -119,6 +115,7 @@ public class ClienteForm extends javax.swing.JFrame {
         }else {
             JOptionPane.showMessageDialog(this, "No es posible guardar el cliente. Ya existe el correo registrado", "Registro no guardado", JOptionPane.ERROR_MESSAGE);
         }
+        
         
     }//GEN-LAST:event_btnGuardarActionPerformed
 

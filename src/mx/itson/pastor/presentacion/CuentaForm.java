@@ -5,6 +5,10 @@
  */
 package mx.itson.pastor.presentacion;
 
+import javax.swing.JOptionPane;
+import mx.itson.pastor.negocio.Cuenta;
+import mx.itson.pastor.persistencia.CuentaDAO;
+
 /**
  *
  * @author Aldri
@@ -32,12 +36,6 @@ public class CuentaForm extends javax.swing.JFrame {
         txtNumeroCuenta = new javax.swing.JTextField();
         lblNombreCliente = new javax.swing.JLabel();
         txtNombreCliente = new javax.swing.JTextField();
-        lblDireccionCliente = new javax.swing.JLabel();
-        txtDireccionCliente = new javax.swing.JTextField();
-        lblTelefonoCliente = new javax.swing.JLabel();
-        txtTelefonoCliente = new javax.swing.JTextField();
-        lblEmailCliente = new javax.swing.JLabel();
-        txtEmailCliente = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -48,13 +46,9 @@ public class CuentaForm extends javax.swing.JFrame {
 
         lblNumeroCuenta.setText("Numero de cuenta:");
 
-        lblNombreCliente.setText("Nombre del cliente:");
+        lblNombreCliente.setText("ID del cliente:");
 
-        lblDireccionCliente.setText("Direccion del cliente:");
-
-        lblTelefonoCliente.setText("Telefono del cliente:");
-
-        lblEmailCliente.setText("Email del cliente:");
+        txtNombreCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         btnGuardar.setText("Guardar");
         btnGuardar.setToolTipText("Guardar cliente...");
@@ -73,18 +67,12 @@ public class CuentaForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNumeroCuenta)
                     .addComponent(txtNombreCliente)
-                    .addComponent(txtDireccionCliente)
-                    .addComponent(txtTelefonoCliente)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblFormularioCuenta)
                             .addComponent(lblNumeroCuenta)
-                            .addComponent(lblNombreCliente)
-                            .addComponent(lblDireccionCliente)
-                            .addComponent(lblTelefonoCliente)
-                            .addComponent(lblEmailCliente))
+                            .addComponent(lblNombreCliente))
                         .addGap(0, 323, Short.MAX_VALUE))
-                    .addComponent(txtEmailCliente)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnGuardar)))
@@ -103,21 +91,9 @@ public class CuentaForm extends javax.swing.JFrame {
                 .addComponent(lblNombreCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblDireccionCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDireccionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblTelefonoCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblEmailCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnGuardar)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -126,10 +102,13 @@ public class CuentaForm extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         
         String numero = txtNumeroCuenta.getText();
-        String nombre = txtNombreCliente.getText();
-        String direccion = txtDireccionCliente.getText();
-        String telefono = txtTelefonoCliente.getText();
-        String email = txtEmailCliente.getText();
+        String idCliente = txtNombreCliente.getText();
+        
+        if (Cuenta.guardar(numero, Integer.parseInt(idCliente))){
+            JOptionPane.showMessageDialog(this, "El registro se guardo correctamente", "Registro guardado", JOptionPane.INFORMATION_MESSAGE);
+        }else {
+            JOptionPane.showMessageDialog(this, "No es posible guardar el cliente. Ya existe el correo registrado", "Registro no guardado", JOptionPane.ERROR_MESSAGE);
+        }
         
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -170,16 +149,10 @@ public class CuentaForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JLabel lblDireccionCliente;
-    private javax.swing.JLabel lblEmailCliente;
     private javax.swing.JLabel lblFormularioCuenta;
     private javax.swing.JLabel lblNombreCliente;
     private javax.swing.JLabel lblNumeroCuenta;
-    private javax.swing.JLabel lblTelefonoCliente;
-    private javax.swing.JTextField txtDireccionCliente;
-    private javax.swing.JTextField txtEmailCliente;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtNumeroCuenta;
-    private javax.swing.JTextField txtTelefonoCliente;
     // End of variables declaration//GEN-END:variables
 }

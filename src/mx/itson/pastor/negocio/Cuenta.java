@@ -3,6 +3,7 @@ package mx.itson.pastor.negocio;
 
 import java.util.List;
 import mx.itson.pastor.entidades.Cliente;
+import mx.itson.pastor.persistencia.CuentaDAO;
 
 /**
  *
@@ -70,5 +71,18 @@ public class Cuenta {
     private Cliente cliente;
     private String numero;
     private List<Movimiento> movimientos;
+    
+    public static boolean guardar(String numero, int idCliente) {
+        boolean resultado = false;
+        try {
+            if (!CuentaDAO.verificarExistencia(numero)){
+                resultado = CuentaDAO.guardar(numero, idCliente);
+            }
+            resultado = CuentaDAO.guardar(numero, idCliente);
+        }catch (Exception ex){
+            System.err.println(ex.getMessage());
+        }
+        return resultado;
+    }
     
 }

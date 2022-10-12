@@ -29,20 +29,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="txtNumeroCuenta" max="32767" attributes="0"/>
                   <Component id="txtNombreCliente" alignment="0" max="32767" attributes="0"/>
-                  <Component id="txtDireccionCliente" alignment="0" max="32767" attributes="0"/>
-                  <Component id="txtTelefonoCliente" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblFormularioCuenta" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblNumeroCuenta" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblNombreCliente" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblDireccionCliente" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblTelefonoCliente" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblEmailCliente" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="323" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="txtEmailCliente" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
@@ -65,21 +59,9 @@
               <Component id="lblNombreCliente" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="txtNombreCliente" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="lblDireccionCliente" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtDireccionCliente" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="lblTelefonoCliente" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtTelefonoCliente" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="lblEmailCliente" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtEmailCliente" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="9" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -102,31 +84,15 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombreCliente">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre del cliente:"/>
+        <Property name="text" type="java.lang.String" value="ID del cliente:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNombreCliente">
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblDireccionCliente">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Direccion del cliente:"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor de Texto"/>
+        </Property>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtDireccionCliente">
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblTelefonoCliente">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Telefono del cliente:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtTelefonoCliente">
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblEmailCliente">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Email del cliente:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtEmailCliente">
     </Component>
     <Component class="javax.swing.JButton" name="btnGuardar">
       <Properties>

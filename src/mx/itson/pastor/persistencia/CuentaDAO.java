@@ -2,6 +2,7 @@
 package mx.itson.pastor.persistencia;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -41,6 +42,39 @@ public class CuentaDAO {
             System.err.println("Ocurrio un error: " + ex.getMessage());
         }
         return cuentas;
+    }
+    
+    public static boolean guardar(String numero, int idCliente){
+        boolean resultado = false;
+        try{
+            Connection connection = Conexion.obtener();
+            String consulta = "INSERT INTO cuenta (numero, idCliente) VALUES (?, ?)";
+            PreparedStatement statement = connection.prepareStatement(consulta);
+            statement.setString(1, numero);
+            statement.setInt(2, idCliente);
+            statement.execute();
+            
+            resultado = statement.getUpdateCount() == 1;
+        }catch(Exception ex){
+            System.err.println("Ocurrio un error: " + ex.getMessage());
+        }
+        return resultado;
+    }
+    
+    public static boolean verificarExistencia(String numero){
+        boolean existencia = false;
+        try {
+            Connection connection = Conexion.obtener();
+            String consulta = "SELECT * FROM cuenta WHERE numero = ?";
+            PreparedStatement statement = connection.prepareStatement(consulta);
+            statement.setString(1, numero);
+            ResultSet resultSet = statement.executeQuery();
+            
+            existencia = resultSet.next();
+        }catch (Exception ex){
+            System.err.println("Ocurrio un error: " + ex.getMessage());
+        }
+        return existencia;
     }
     
 }

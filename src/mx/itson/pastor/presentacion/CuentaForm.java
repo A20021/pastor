@@ -107,7 +107,7 @@ public class CuentaForm extends javax.swing.JFrame {
         if (Cuenta.guardar(numero, Integer.parseInt(idCliente))){
             JOptionPane.showMessageDialog(this, "El registro se guardo correctamente", "Registro guardado", JOptionPane.INFORMATION_MESSAGE);
         }else {
-            JOptionPane.showMessageDialog(this, "No es posible guardar el cliente. Ya existe el correo registrado", "Registro no guardado", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No es posible guardar la cuenta. Ya existe el nuemro de cuenta registrado", "Registro no guardado", JOptionPane.ERROR_MESSAGE);
         }
         
     }//GEN-LAST:event_btnGuardarActionPerformed

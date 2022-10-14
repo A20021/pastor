@@ -53,6 +53,11 @@ public class MovimientoListado extends javax.swing.JFrame {
         lblNumeroCuenta.setText("Ingrese el numero de cuenta:");
 
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         tblMovimientos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -129,6 +134,24 @@ public class MovimientoListado extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        
+        List<Movimiento> movimiento = MovimientoDAO.obtenerPorCuenta(txtNumeroCuenta.getText());
+        DefaultTableModel modelo = (DefaultTableModel)tblMovimientos.getModel();
+        modelo.setRowCount(0);
+        
+        for (Movimiento mo : movimiento) {
+            modelo.addRow(new Object[] {
+              mo.getCuenta().getId(),
+              mo.getCuenta().getNumero(),
+              mo.getConcepto(),
+              mo.getFecha(),
+              mo.getImporte()
+            });
+        }
+        
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments

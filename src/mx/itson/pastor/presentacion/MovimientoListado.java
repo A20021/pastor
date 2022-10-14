@@ -5,6 +5,11 @@
  */
 package mx.itson.pastor.presentacion;
 
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import mx.itson.pastor.negocio.Movimiento;
+import mx.itson.pastor.persistencia.MovimientoDAO;
+
 /**
  *
  * @author Aldri
@@ -34,7 +39,13 @@ public class MovimientoListado extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMovimientos = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Movimientos");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         lblMovimientos.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         lblMovimientos.setText("Movimientos");
@@ -45,15 +56,23 @@ public class MovimientoListado extends javax.swing.JFrame {
 
         tblMovimientos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "idCuenta", "numero", "concepto", "fecha", "importe"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblMovimientos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -92,6 +111,24 @@ public class MovimientoListado extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        
+        List<Movimiento> movimiento = MovimientoDAO.obtenerTodos();
+        DefaultTableModel modelo = (DefaultTableModel)tblMovimientos.getModel();
+        modelo.setRowCount(0);
+        
+        for (Movimiento mo : movimiento) {
+            modelo.addRow(new Object[] {
+              mo.getCuenta().getId(),
+              mo.getCuenta().getNumero(),
+              mo.getConcepto(),
+              mo.getFecha(),
+              mo.getImporte()
+            });
+        }
+        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

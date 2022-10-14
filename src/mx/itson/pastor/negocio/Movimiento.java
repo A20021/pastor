@@ -11,6 +11,20 @@ import mx.itson.pastor.enumeradores.TipoMovimiento;
 public class Movimiento {
 
     /**
+     * @return the cuenta
+     */
+    public Cuenta getCuenta() {
+        return cuenta;
+    }
+
+    /**
+     * @param cuenta the cuenta to set
+     */
+    public void setCuenta(Cuenta cuenta) {
+        this.cuenta = cuenta;
+    }
+
+    /**
      * @return the id
      */
     public int getId() {
@@ -81,6 +95,7 @@ public class Movimiento {
     }
     
     private int id;
+    private Cuenta cuenta;
     private String concepto;
     private Date fecha;
     private double importe;
